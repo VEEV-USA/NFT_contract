@@ -95,8 +95,27 @@ $ yarn clean
 Deploy the contracts to Hardhat Network:
 
 ```sh
-$ yarn deploy --greeting "Bonjour, le monde!"
+$ npx hardhat run deployproxy.js
 ```
+
+### Generate NFT metadata
+
+There's a helper script to quickly generate some nft metadata for you. (update the `nft_storage_api_key` in `.env` to use it)
+This can be extended to generate metadata for other NFTs on the fly later.
+
+```sh
+$ npx ts-node src/metadatahelper/storeNFT.ts
+```
+
+### Mint NFT's from the app
+
+Compile the smart contracts and generate TypeChain artifacts, then deploy the contracts to Hardhat Network (or a testnet), then:
+
+```sh
+safeMint(addressTo, tokenURI)
+```
+
+Where tokenURI is the ipfs uri from the metadata helper. for example: ipfs://bafyreibjdfkp4ucaltmnrnv5kfekrwdgtrqay3niyp5lwligpkgmcau6h4/metadata.json
 
 ## Syntax Highlighting
 
